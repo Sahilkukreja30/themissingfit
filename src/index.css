@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Lato:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The Missing Fit - Elegant Fashion Rental Design System
+   Color palette inspired by rich chocolate browns, warm creams, and subtle gold accents
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --chocolate: 20 30% 20%;
+    --cream: 42 45% 90%;
+    --gold: 38 70% 55%;
+    --gold-light: 40 60% 75%;
+    --rose: 350 45% 80%;
+    --burgundy: 345 65% 35%;
+    --champagne: 38 35% 93%;
+    
+    /* Core Semantic Colors */
+    --background: 42 30% 97%;
+    --foreground: 20 35% 15%;
+
+    --card: 42 45% 98%;
+    --card-foreground: 20 35% 15%;
+
+    --popover: 42 45% 98%;
+    --popover-foreground: 20 35% 15%;
+
+    --primary: 20 30% 20%;
+    --primary-foreground: 42 45% 95%;
+
+    --secondary: 42 30% 92%;
+    --secondary-foreground: 20 30% 20%;
+
+    --muted: 38 20% 90%;
+    --muted-foreground: 20 15% 45%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 20 30% 15%;
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 38 25% 85%;
+    --input: 38 25% 85%;
+    --ring: 38 70% 55%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(38 70% 55%), hsl(40 75% 65%));
+    --gradient-chocolate: linear-gradient(180deg, hsl(20 30% 20%), hsl(20 35% 12%));
+    --gradient-cream: linear-gradient(180deg, hsl(42 45% 98%), hsl(42 30% 94%));
+    --gradient-hero: linear-gradient(135deg, hsl(20 30% 18% / 0.95), hsl(20 35% 12% / 0.85));
+    
+    /* Shadows */
+    --shadow-elegant: 0 4px 20px -4px hsl(20 30% 20% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(20 30% 20% / 0.12);
+    --shadow-gold: 0 4px 20px -4px hsl(38 70% 55% / 0.3);
+    
+    /* Sidebar */
+    --sidebar-background: 20 30% 20%;
+    --sidebar-foreground: 42 45% 90%;
+    --sidebar-primary: 38 70% 55%;
+    --sidebar-primary-foreground: 20 30% 15%;
+    --sidebar-accent: 20 25% 28%;
+    --sidebar-accent-foreground: 42 45% 90%;
+    --sidebar-border: 20 25% 28%;
+    --sidebar-ring: 38 70% 55%;
+  }
+
+  .dark {
+    --background: 20 35% 8%;
+    --foreground: 42 45% 92%;
+
+    --card: 20 30% 12%;
+    --card-foreground: 42 45% 92%;
+
+    --popover: 20 30% 12%;
+    --popover-foreground: 42 45% 92%;
+
+    --primary: 42 45% 90%;
+    --primary-foreground: 20 30% 12%;
+
+    --secondary: 20 25% 18%;
+    --secondary-foreground: 42 45% 90%;
+
+    --muted: 20 25% 18%;
+    --muted-foreground: 42 20% 65%;
+
+    --accent: 38 70% 55%;
+    --accent-foreground: 20 30% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 42 45% 92%;
+
+    --border: 20 25% 22%;
+    --input: 20 25% 22%;
+    --ring: 38 70% 55%;
+    
+    --sidebar-background: 20 35% 6%;
+    --sidebar-foreground: 42 45% 92%;
+    --sidebar-primary: 38 70% 55%;
+    --sidebar-primary-foreground: 20 30% 10%;
+    --sidebar-accent: 20 25% 15%;
+    --sidebar-accent-foreground: 42 45% 92%;
+    --sidebar-border: 20 25% 15%;
+    --sidebar-ring: 38 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .btn-gold {
+    @apply bg-gradient-to-r from-accent to-gold-light text-primary font-semibold 
+           shadow-gold hover:shadow-lg transition-all duration-300 
+           hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  .btn-outline-gold {
+    @apply border-2 border-accent text-accent hover:bg-accent hover:text-primary
+           transition-all duration-300 font-medium;
+  }
+  
+  .btn-chocolate {
+    @apply bg-primary text-primary-foreground shadow-elegant 
+           hover:bg-chocolate hover:shadow-lg transition-all duration-300;
+  }
+  
+  .card-elegant {
+    @apply bg-card rounded-xl shadow-card border border-border/50
+           hover:shadow-elegant transition-all duration-300;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-accent via-gold-light to-accent 
+           bg-clip-text text-transparent;
+  }
+  
+  .section-divider {
+    @apply w-24 h-0.5 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto;
+  }
+  
+  .glass-overlay {
+    @apply bg-primary/80 backdrop-blur-md;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+}
