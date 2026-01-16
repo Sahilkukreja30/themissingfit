@@ -29,6 +29,16 @@ import logo from '@/assets/logo.jpeg';
 const AdminPage = () => {
   const [dresses, setDresses] = useState<Dress[]>(initialDresses);
   const [selectedDress, setSelectedDress] = useState<Dress | null>(null);
+  const [isAddDressOpen, setIsAddDressOpen] = useState(false);
+
+  const [dressForm, setDressForm] = useState({
+    name: '',
+    category: '',
+    priceWithJewelry: '',
+    priceWithoutJewelry: '',
+    images: [] as File[],
+  });
+
   const [rentalForm, setRentalForm] = useState({
     startDate: '',
     endDate: '',
@@ -63,6 +73,35 @@ const AdminPage = () => {
     toast.success('Rental period added successfully');
     setRentalForm({ startDate: '', endDate: '', customerName: '' });
     setIsDialogOpen(false);
+  };
+  const handleAddDress = () => {
+    if (!dressForm.name || !dressForm.category) {
+      toast.error('Please fill all required fields');
+      return;
+    }
+
+    const newDress: Dress = {
+      id: `d${Date.now()}`,
+      name: dressForm.name,
+      category: dressForm.category,
+      priceWithJewelry: Number(dressForm.priceWithJewelry),
+      priceWithoutJewelry: Number(dressForm.priceWithoutJewelry),
+      image: URL.createObjectURL(dressForm.images[0]),
+      isAvailable: true,
+      rentalPeriods: [],
+    };
+
+    setDresses([newDress, ...dresses]);
+
+    toast.success('Dress added successfully');
+    setIsAddDressOpen(false);
+    setDressForm({
+      name: '',
+      category: '',
+      priceWithJewelry: '',
+      priceWithoutJewelry: '',
+      images: [],
+    });
   };
 
   const handleRemoveRental = (dressId: string, rentalId: string) => {
@@ -103,9 +142,9 @@ const AdminPage = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img 
-                src={logo} 
-                alt="The Missing Fit" 
+              <img
+                src={logo}
+                alt="The Missing Fit"
                 className="h-12 w-12 rounded-full object-cover"
               />
               <div>
@@ -131,6 +170,124 @@ const AdminPage = () => {
             Manage rental availability and track booking periods for each outfit.
           </p>
         </div>
+        <div>
+          <Dialog open={isAddDressOpen} onOpenChange={setIsAddDressOpen}>
+            <DialogTrigger asChild>
+              <Button variant="gold">
+                <Plus className="h-4 w-4" />
+                Add Dress
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-lg">
+              <DialogHeader>
+                <DialogTitle className="font-display text-xl">
+                  Add New Dress
+                </DialogTitle>
+                <DialogDescription>
+                  Add a new outfit to your inventory.
+                </DialogDescription>
+              </DialogHeader>
+
+              <div className="space-y-4 mt-4">
+                {/* Dress Name */}
+                <div className="space-y-2">
+                  <Label>Dress Name *</Label>
+                  <Input
+                    placeholder="Royal Navy Ballroom Gown"
+                    value={dressForm.name}
+                    onChange={(e) =>
+                      setDressForm({ ...dressForm, name: e.target.value })
+                    }
+                  />
+                </div>
+
+                {/* Category */}
+                <div className="space-y-2">
+                  <Label>Category *</Label>
+                  <Input
+                    placeholder="Gown / Lehenga / Saree"
+                    value={dressForm.category}
+                    onChange={(e) =>
+                      setDressForm({ ...dressForm, category: e.target.value })
+                    }
+                  />
+                </div>
+
+                {/* Prices */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label>Price with Jewelry *</Label>
+                    <Input
+                      type="number"
+                      placeholder="4500"
+                      value={dressForm.priceWithJewelry}
+                      onChange={(e) =>
+                        setDressForm({
+                          ...dressForm,
+                          priceWithJewelry: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label>Price without Jewelry *</Label>
+                    <Input
+                      type="number"
+                      placeholder="3200"
+                      value={dressForm.priceWithoutJewelry}
+                      onChange={(e) =>
+                        setDressForm({
+                          ...dressForm,
+                          priceWithoutJewelry: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+                </div>
+
+                {/* Images */}
+                <div className="space-y-2">
+                  <Label>Dress Images *</Label>
+                  <Input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    onChange={(e) =>
+                      setDressForm({
+                        ...dressForm,
+                        images: Array.from(e.target.files || []),
+                      })
+                    }
+                  />
+                  <p className="text-xs text-muted-foreground">
+                    Upload multiple images for slider view
+                  </p>
+                </div>
+
+                {/* Actions */}
+                <div className="flex gap-3 pt-4">
+                  <Button
+                    variant="outline"
+                    className="flex-1"
+                    onClick={() => setIsAddDressOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+
+                  <Button
+                    variant="gold"
+                    className="flex-1"
+                    onClick={handleAddDress}
+                  >
+                    Add Dress
+                  </Button>
+                </div>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
+
 
         {/* Dress Table */}
         <div className="card-elegant overflow-hidden">
@@ -163,9 +320,9 @@ const AdminPage = () => {
                   </TableCell>
                   <TableCell className="capitalize">{dress.category}</TableCell>
                   <TableCell>
-                    <Badge 
-                      className={dress.isAvailable 
-                        ? "bg-accent text-primary cursor-pointer" 
+                    <Badge
+                      className={dress.isAvailable
+                        ? "bg-accent text-primary cursor-pointer"
                         : "bg-burgundy text-cream cursor-pointer"
                       }
                       onClick={() => toggleAvailability(dress.id)}
@@ -268,15 +425,15 @@ const AdminPage = () => {
                           </div>
 
                           <div className="flex gap-3 pt-4">
-                            <Button 
-                              variant="outline" 
+                            <Button
+                              variant="outline"
                               className="flex-1"
                               onClick={() => setIsDialogOpen(false)}
                             >
                               Cancel
                             </Button>
-                            <Button 
-                              variant="gold" 
+                            <Button
+                              variant="gold"
                               className="flex-1"
                               onClick={() => handleAddRental(dress.id)}
                             >
@@ -303,8 +460,8 @@ const AdminPage = () => {
             <li>• Customer names are optional but help with tracking</li>
           </ul>
         </div>
-      </main>
-    </div>
+      </main >
+    </div >
   );
 };
 
