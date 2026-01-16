@@ -1,7 +1,7 @@
 export interface Dress {
   id: string;
   name: string;
-  category: 'lehenga' | 'saree' | 'indo-western' | 'anarkali' | 'gown' | 'sharara';
+  category: string;
   image: string;
   priceWithoutJewelry: number;
   priceWithJewelry: number;
