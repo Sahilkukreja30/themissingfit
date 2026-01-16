@@ -22,7 +22,7 @@ const benefits = [
 const ShareOutfitSection = () => {
   const handleContact = () => {
     const message = "Hi! I'd like to share my outfit with The Missing Fit. Can you tell me more about the process?";
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917225994009?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
