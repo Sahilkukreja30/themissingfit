@@ -19,7 +19,7 @@ const Navbar = ({ onRequestCall }: NavbarProps) => {
   ];
 
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919876543210?text=Hi! I am interested in renting an outfit from The Missing Fit.', '_blank');
+    window.open('https://wa.me/917225994009?text=Hi! I am interested in renting an outfit from The Missing Fit.', '_blank');
   };
 
   return (

@@ -4,7 +4,7 @@ import logo from '@/assets/logo.jpeg';
 
 const Footer = () => {
   const handleWhatsApp = () => {
-    window.open('https://wa.me/919876543210?text=Hi! I have a query about The Missing Fit.', '_blank');
+    window.open('https://wa.me/917225994009?text=Hi! I have a query about The Missing Fit.', '_blank');
   };
 
   return (
@@ -67,28 +67,28 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-accent mt-0.5" />
                 <div>
-                  <p className="text-cream">+91 98765 43210</p>
+                  <p className="text-cream">+91 7225994009</p>
                   <p className="text-cream/60 text-sm">Call or WhatsApp</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-accent mt-0.5" />
                 <div>
-                  <p className="text-cream">hello@themissingfit.com</p>
+                  <p className="text-cream">themissingfit26@gmail.com</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-accent mt-0.5" />
                 <div>
-                  <p className="text-cream">Mumbai, Maharashtra</p>
-                  <p className="text-cream/60 text-sm">By appointment only</p>
+                  <p className="text-cream">Scheme No. 51, Indore M.P.</p>
+                  {/* <p className="text-cream/60 text-sm">By appointment only</p> */}
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="h-5 w-5 text-accent mt-0.5" />
                 <div>
-                  <p className="text-cream">10 AM - 7 PM</p>
-                  <p className="text-cream/60 text-sm">Monday to Saturday</p>
+                  <p className="text-cream">10 AM - 9 PM</p>
+                  {/* <p className="text-cream/60 text-sm">Monday to Saturday</p> */}
                 </div>
               </li>
             </ul>
@@ -108,7 +108,7 @@ const Footer = () => {
               <Button 
                 variant="goldOutline" 
                 className="w-full"
-                onClick={() => window.location.href = 'tel:+919876543210'}
+                onClick={() => window.location.href = 'tel:+917225994009'}
               >
                 <Phone className="h-4 w-4" />
                 Call Now

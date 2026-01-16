@@ -57,15 +57,15 @@ const HeroSection = () => {
           {/* Trust Indicators */}
           <div className="flex flex-wrap items-center gap-8 mt-12 pt-8 border-t border-cream/20 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <div className="text-center">
-              <p className="text-3xl font-display text-accent">500+</p>
+              <p className="text-3xl font-display text-accent">50+</p>
               <p className="text-cream/60 text-sm">Happy Customers</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-display text-accent">200+</p>
+              <p className="text-3xl font-display text-accent">50+</p>
               <p className="text-cream/60 text-sm">Designer Outfits</p>
             </div>
             <div className="text-center">
-              <p className="text-3xl font-display text-accent">4.9★</p>
+              <p className="text-3xl font-display text-accent">4.5★</p>
               <p className="text-cream/60 text-sm">Customer Rating</p>
             </div>
           </div>

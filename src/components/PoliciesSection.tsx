@@ -39,7 +39,7 @@ const PoliciesSection = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
-                <span>Amount varies based on outfit value (₹5,000 - ₹15,000)</span>
+                <span>Amount varies based on outfit value (₹1,00 - ₹2,000)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
@@ -67,7 +67,7 @@ const PoliciesSection = () => {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>
-                <span>Extensions available at ₹500-₹1,500 per additional day</span>
+                <span>Extensions available at ₹300-₹1,500 per additional day</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent mt-1">•</span>

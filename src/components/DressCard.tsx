@@ -11,7 +11,7 @@ interface DressCardProps {
 const DressCard = ({ dress, onViewDetails }: DressCardProps) => {
   const handleWhatsApp = () => {
     const message = `Hi! I'm interested in renting the "${dress.name}" from The Missing Fit.`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917225994009?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

@@ -40,7 +40,7 @@ Preferred Time: ${formData.preferredTime}
 Message: ${formData.message || 'No additional message'}
     `.trim();
 
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917225994009?text=${encodeURIComponent(message)}`, '_blank');
     
     toast.success('Request sent! We will call you back soon.');
     setFormData({ name: '', phone: '', preferredTime: '', message: '' });
@@ -77,7 +77,7 @@ Message: ${formData.message || 'No additional message'}
             <Input
               id="phone"
               type="tel"
-              placeholder="+91 9876543210"
+              placeholder="+91 7225994009"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               required

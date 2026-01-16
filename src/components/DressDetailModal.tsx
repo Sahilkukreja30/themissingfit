@@ -20,7 +20,7 @@ const DressDetailModal = ({ dress, isOpen, onClose }: DressDetailModalProps) => 
 
   const handleWhatsApp = () => {
     const message = `Hi! I'm interested in renting the "${dress.name}" from The Missing Fit. Can you help me with the booking?`;
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917225994009?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
@@ -137,7 +137,7 @@ const DressDetailModal = ({ dress, isOpen, onClose }: DressDetailModalProps) => 
                 variant="outline" 
                 size="lg" 
                 className="flex-1"
-                onClick={() => window.location.href = 'tel:+919876543210'}
+                onClick={() => window.location.href = 'tel:+917225994009'}
               >
                 <Phone className="h-5 w-5" />
                 Call Now
